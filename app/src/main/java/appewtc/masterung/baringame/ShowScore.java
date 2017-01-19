@@ -1,6 +1,7 @@
 package appewtc.masterung.baringame;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,11 +24,33 @@ public class ShowScore extends AppCompatActivity {
     }   // Main Method
 
     public void clickPlay(View view) {
+
+        //Sound Effect
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effectsbutton);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+
         startActivity(new Intent(ShowScore.this, Mode.class));
         finish();
     }
 
     public void clickExit(View view) {
+
+        //Sound Effect
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effectsbutton);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+
         finish();
     }
 

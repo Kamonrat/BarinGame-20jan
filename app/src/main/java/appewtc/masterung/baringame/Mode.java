@@ -1,6 +1,7 @@
 package appewtc.masterung.baringame;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -44,6 +45,18 @@ public class Mode extends AppCompatActivity implements View.OnClickListener {
                 i = 3;
                 break;
         }   // switch
+
+
+        //Sound Effect
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effectsbutton);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+
         Intent intent = new Intent(Mode.this, PlayGame.class);
         intent.putExtra("Index", i);
         startActivity(intent);

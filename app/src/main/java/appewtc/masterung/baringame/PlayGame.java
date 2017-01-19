@@ -1,6 +1,7 @@
 package appewtc.masterung.baringame;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -118,6 +119,17 @@ public class PlayGame extends AppCompatActivity implements View.OnClickListener 
             startTime -= 1;
 
             if (startTime == 0) {
+
+                //Sound Effect
+                MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effectsbutton);
+                mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mediaPlayer) {
+                        mediaPlayer.release();
+                    }
+                });
+
                 showScore();
             }
 
@@ -179,10 +191,31 @@ public class PlayGame extends AppCompatActivity implements View.OnClickListener 
             showScore();
         }
 
+        //Sound Effect
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effectsbutton);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+
 
     }   // onClick
 
     private void showScore() {
+
+        //Sound Effect
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effectsbutton);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+
         Intent intent = new Intent(PlayGame.this, ShowScore.class);
         intent.putExtra("Score", scoreAnInt);
         startActivity(intent);
