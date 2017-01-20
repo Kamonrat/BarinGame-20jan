@@ -60,6 +60,8 @@ public class Mode extends AppCompatActivity implements View.OnClickListener {
         Intent intent = new Intent(Mode.this, PlayGame.class);
         intent.putExtra("Index", i);
         startActivity(intent);
+        finish();
+
     }   // onClick
 
 }   // Main Class
